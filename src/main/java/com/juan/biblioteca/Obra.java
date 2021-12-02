@@ -18,7 +18,21 @@ public class Obra {
     private int ano;
     private double penalidadeAtraso; //valor por atraso
     private int tempoReserva; //tempo permitido de reserva
+    
+    private static int contador;
 
+    public Obra(String titulo, Autor[] autores, Editora editora, int ano, double penalidadeAtraso, int tempoReserva) {
+        this.id = contador++;
+        this.titulo = titulo;
+        this.autores = autores;
+        this.editora = editora;
+        this.ano = ano;
+        this.penalidadeAtraso = penalidadeAtraso;
+        this.tempoReserva = tempoReserva;
+    }
+
+    
+    
     public int getId() {
         return id;
     }

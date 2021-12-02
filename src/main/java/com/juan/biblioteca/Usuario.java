@@ -5,6 +5,8 @@
  */
 package com.juan.biblioteca;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author juann
@@ -16,8 +18,22 @@ public class Usuario {
     private String login;
     private String senha;
     private int maxEmprestimos; //regra de negocio. a quantidade de emprest. depende do tipo de usuário
-    private Emprestimo[] listaEmprestimos;
+    protected Emprestimo[] listaEmprestimos;
     private Reserva[] listaReservas;
+
+    public Usuario(String nome, String numCelular, String email, String login, String senha) {
+        this.nome = nome;
+        this.numCelular = numCelular;
+        this.email = email;
+        this.login = login;
+        this.senha = senha;
+    }
+
+    
+    
+    public Usuario() {
+        listaEmprestimos = new Emprestimo[maxEmprestimos];
+    }
 
     public String getNome() {
         return nome;
@@ -71,8 +87,14 @@ public class Usuario {
         return listaEmprestimos;
     }
 
-    public void setListaEmprestimos(Emprestimo[] listaEmprestimos) {
-        this.listaEmprestimos = listaEmprestimos;
+    public boolean setListaEmprestimos(Emprestimo emprestimo) {
+        for(int i =0;i<listaEmprestimos.length;i++){
+            if(listaEmprestimos[i] == null){
+                listaEmprestimos[i] = emprestimo;
+                return true;
+            }
+        }
+        return false;
     }
 
     public Reserva[] getListaReservas() {
@@ -87,6 +109,10 @@ public class Usuario {
     
         return false;
     }
-    
+
+    @Override
+    public String toString() {
+        return "Usuario{" + "nome=" + nome + ", numCelular=" + numCelular + ", email=" + email + ", login=" + login + ", senha=" + senha + ", maxEmprestimos=" + maxEmprestimos + ", listaEmprestimos=" + listaEmprestimos.toString() + ", listaReservas=" + listaReservas + '}';
+    }
     
 }

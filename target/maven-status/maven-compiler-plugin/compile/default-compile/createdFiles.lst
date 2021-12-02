@@ -1,2 +1,10 @@
 com\juan\biblioteca\Autor.class
+com\juan\biblioteca\Biblioteca.class
+com\juan\biblioteca\Obra.class
+com\juan\biblioteca\Teste.class
+com\juan\biblioteca\UsuarioEspecial.class
+com\juan\biblioteca\Emprestimo.class
+com\juan\biblioteca\UsuarioComum.class
 com\juan\biblioteca\Editora.class
+com\juan\biblioteca\Reserva.class
+com\juan\biblioteca\Usuario.class

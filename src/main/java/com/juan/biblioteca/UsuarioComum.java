@@ -9,6 +9,12 @@ package com.juan.biblioteca;
  *
  * @author juann
  */
-public class UsuarioComum {
+public class UsuarioComum extends Usuario{
+
+    public UsuarioComum(String nome, String numCelular,String email,String login, String senha) {
+        super(nome, numCelular, email, login, senha);
+        setMaxEmprestimos(5);
+        listaEmprestimos = new Emprestimo[getMaxEmprestimos()];
+    }
     
 }

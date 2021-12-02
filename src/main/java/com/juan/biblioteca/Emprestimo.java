@@ -15,6 +15,14 @@ public class Emprestimo {
     private int qtdRenovado; //regra de negocio, pode renovar até 3 vez
     //private Date dataExpiracao;
     private boolean status;
+    
+    
+
+    public Emprestimo(Usuario usuario, Obra obra) {
+        this.usuario = usuario;
+        this.obra = obra;
+        this.status = true;
+    }
 
     public Usuario getUsuario() {
         return usuario;
