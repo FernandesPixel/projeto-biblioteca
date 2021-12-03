@@ -87,14 +87,8 @@ public class Usuario {
         return listaEmprestimos;
     }
 
-    public boolean setListaEmprestimos(Emprestimo emprestimo) {
-        for(int i =0;i<listaEmprestimos.length;i++){
-            if(listaEmprestimos[i] == null){
-                listaEmprestimos[i] = emprestimo;
-                return true;
-            }
-        }
-        return false;
+    public void setListaEmprestimos(Emprestimo[] emprestimo) {
+        this.listaEmprestimos = emprestimo;
     }
 
     public Reserva[] getListaReservas() {
@@ -112,7 +106,7 @@ public class Usuario {
 
     @Override
     public String toString() {
-        return "Usuario{" + "nome=" + nome + ", numCelular=" + numCelular + ", email=" + email + ", login=" + login + ", senha=" + senha + ", maxEmprestimos=" + maxEmprestimos + ", listaEmprestimos=" + listaEmprestimos.toString() + ", listaReservas=" + listaReservas + '}';
+        return "Usuario{" + "nome=" + nome + ", numCelular=" + numCelular + ", email=" + email + ", login=" + login + ", senha=" + senha + ", maxEmprestimos=" + maxEmprestimos + ", listaEmprestimos=" + listaEmprestimos + ", listaReservas=" + listaReservas + '}';
     }
     
 }

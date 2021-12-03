@@ -5,6 +5,8 @@
  */
 package com.juan.biblioteca;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author juann
@@ -15,8 +17,16 @@ public class Biblioteca {
     private Obra[] listaObras;
 
     public static boolean emprestar(Usuario usuario, Obra obra) {
-        Emprestimo emprestimo = new Emprestimo(usuario, obra);
-        return usuario.setListaEmprestimos(emprestimo);
+        Emprestimo[] emprestimos = usuario.getListaEmprestimos();
+        Emprestimo emprestimo = new Emprestimo(usuario,obra);
+        for(int i =0;i<emprestimos.length;i++){
+            if(emprestimos[i] == null){
+                emprestimos[i] = emprestimo;
+                usuario.setListaEmprestimos(emprestimos);
+                return true;
+            }
+        }
+        return false;
     }
 
     public static void devolver(Usuario usuario, Obra obra) {
