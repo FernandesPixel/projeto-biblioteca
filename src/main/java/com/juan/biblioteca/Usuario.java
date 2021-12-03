@@ -27,12 +27,14 @@ public class Usuario {
         this.email = email;
         this.login = login;
         this.senha = senha;
+        Biblioteca.adicionarUsuario(this);
     }
 
     
     
     public Usuario() {
         listaEmprestimos = new Emprestimo[maxEmprestimos];
+        
     }
 
     public String getNome() {

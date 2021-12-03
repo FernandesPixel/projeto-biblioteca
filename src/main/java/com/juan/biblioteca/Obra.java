@@ -29,6 +29,7 @@ public class Obra {
         this.ano = ano;
         this.penalidadeAtraso = penalidadeAtraso;
         this.tempoReserva = tempoReserva;
+        Biblioteca.adicionarObra(this);
     }
 
     
