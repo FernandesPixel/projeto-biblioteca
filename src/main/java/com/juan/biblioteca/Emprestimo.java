@@ -15,8 +15,6 @@ public class Emprestimo {
     private int qtdRenovado; //regra de negocio, pode renovar até 3 vez
     //private Date dataExpiracao;
     private boolean status;
-    
-    
 
     public Emprestimo(Usuario usuario, Obra obra) {
         this.usuario = usuario;
@@ -56,5 +54,13 @@ public class Emprestimo {
         this.status = status;
     }
     
+    public static Emprestimo procurarEmprestimo(Usuario usuario, Obra obra){
+        for(Emprestimo emprestimo: usuario.getListaEmprestimos()){
+            if(emprestimo.getObra().equals(obra)){
+                return emprestimo;
+            }
+        }
+        return null;
+    }
     
 }

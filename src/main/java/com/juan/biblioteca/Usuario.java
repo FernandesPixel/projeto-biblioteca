@@ -12,6 +12,7 @@ import java.util.ArrayList;
  * @author juann
  */
 public class Usuario {
+    private int id;
     private String nome;
     private String numCelular;
     private String email;
@@ -20,13 +21,17 @@ public class Usuario {
     private int maxEmprestimos; //regra de negocio. a quantidade de emprest. depende do tipo de usuário
     protected Emprestimo[] listaEmprestimos;
     private Reserva[] listaReservas;
+    
+    private static int contador;
 
     public Usuario(String nome, String numCelular, String email, String login, String senha) {
+        this.id = contador;
         this.nome = nome;
         this.numCelular = numCelular;
         this.email = email;
         this.login = login;
         this.senha = senha;
+        contador++;
         Biblioteca.adicionarUsuario(this);
     }
 
@@ -35,6 +40,14 @@ public class Usuario {
     public Usuario() {
         listaEmprestimos = new Emprestimo[maxEmprestimos];
         
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNome() {
@@ -108,7 +121,13 @@ public class Usuario {
 
     @Override
     public String toString() {
-        return "Usuario{" + "nome=" + nome + ", numCelular=" + numCelular + ", email=" + email + ", login=" + login + ", senha=" + senha + ", maxEmprestimos=" + maxEmprestimos + ", listaEmprestimos=" + listaEmprestimos + ", listaReservas=" + listaReservas + '}';
+        /*
+        String obraEmprestimo = "";
+        for(Emprestimo emprestimo: listaEmprestimos){
+            obraEmprestimo+= " "+emprestimo.getObra().getTitulo()+", ";
+        }
+        */
+        return "Usuario{" + "nome=" + nome + ", numCelular=" + numCelular + ", email=" + email + ", login=" + login + ", senha=" + senha + ", maxEmprestimos=" + maxEmprestimos + ", listaEmprestimos=" + "VAZIO" + ", listaReservas=" + listaReservas + '}';
     }
     
 }
