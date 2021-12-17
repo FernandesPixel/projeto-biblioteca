@@ -18,21 +18,21 @@ public class Obra {
     private int ano;
     private double penalidadeAtraso; //valor por atraso
     private int tempoReserva; //tempo permitido de reserva
+    private int qtdExemplares;
     
     private static int contador=1;
 
-    public Obra(String titulo, Autor[] autores, Editora editora, int ano, double penalidadeAtraso, int tempoReserva) {
+    public Obra(String titulo, Autor[] autores, Editora editora, int ano,int qtdExemplares, double penalidadeAtraso, int tempoReserva) {
         this.id = contador;
         this.titulo = titulo;
         this.autores = autores;
         this.editora = editora;
         this.ano = ano;
+        this.qtdExemplares = qtdExemplares;
         this.penalidadeAtraso = penalidadeAtraso;
         contador++;
         Biblioteca.adicionarObra(this);
     }
-
-    
     
     public int getId() {
         return id;
@@ -74,6 +74,14 @@ public class Obra {
         this.ano = ano;
     }
 
+    public int getQtdExemplares() {
+        return qtdExemplares;
+    }
+
+    public void setQtdExemplares(int qtdExemplares) {
+        this.qtdExemplares = qtdExemplares;
+    }
+
     public double getPenalidadeAtraso() {
         return penalidadeAtraso;
     }
@@ -89,8 +97,6 @@ public class Obra {
     public void setTempoReserva(int tempoReserva) {
         this.tempoReserva = tempoReserva;
     }
-
-    
     
     public boolean estaEmprestado() {
 

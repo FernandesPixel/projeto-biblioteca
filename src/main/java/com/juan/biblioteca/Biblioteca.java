@@ -64,11 +64,14 @@ public class Biblioteca {
     public static boolean emprestar(Usuario usuario, Obra obra) {
         ArrayList<Emprestimo> emprestimos = new ArrayList<>();
         Emprestimo emprestimo = new Emprestimo(usuario, obra);
-        if (emprestimos.size() < usuario.getMaxEmprestimos()) {
-            emprestimos.add(emprestimo);
-            Emprestimo[] listaEmprestimos = new Emprestimo[emprestimos.size()];
-            usuario.setListaEmprestimos(emprestimos.toArray(listaEmprestimos));
-            return true;
+        if (Usuario.podeEmprestar(usuario)) {
+            if (obra.getQtdExemplares() > 0) {
+                emprestimos.add(emprestimo);
+                Emprestimo[] listaEmprestimos = new Emprestimo[emprestimos.size()];
+                usuario.setListaEmprestimos(emprestimos.toArray(listaEmprestimos));
+                obra.setQtdExemplares(obra.getQtdExemplares()-1);
+                return true;
+            }
         }
         return false;
     }
@@ -86,6 +89,10 @@ public class Biblioteca {
 
     }
 
+    public static void limparReservas() {
+
+    }
+
     public static void renovar(Usuario usuario, Obra obra) {
 
     }
@@ -94,15 +101,11 @@ public class Biblioteca {
 
     }
 
-    public static void limparReservas() {
-
-    }
-
     @Override
     public String toString() {
         String usuarios = "";
         for (Usuario usuario : listaUsuarios) {
-            if(usuario != null){
+            if (usuario != null) {
                 usuarios += " " + usuario.getNome() + ", ";
             }
         }

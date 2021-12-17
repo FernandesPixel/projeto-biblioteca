@@ -6,6 +6,7 @@
 package com.juan.biblioteca;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  *
@@ -116,6 +117,20 @@ public class Usuario {
     
     public boolean estaPunido(){
     
+        return false;
+    }
+    
+    public static boolean podeEmprestar(Usuario usuario) {
+        ArrayList<Emprestimo> emprestimos = new ArrayList<>();
+        for(Emprestimo emp:usuario.getListaEmprestimos()){
+            if(emp != null){
+                emprestimos.add(emp);
+            }
+        }
+        System.out.println("listaEmprestimos: "+emprestimos.toString());
+        if (emprestimos.size() < usuario.getMaxEmprestimos()) {
+            return true;
+        }
         return false;
     }
 
